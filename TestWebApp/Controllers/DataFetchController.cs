@@ -25,9 +25,15 @@ namespace TestWebApp.Controllers
         }
 
         [HttpGet("{page}/{pageSize}")]
-        public async Task<ActionResult<object>> Get(int page, int pageSize)
+        public async Task<ActionResult<object>> GetMovies(int page, int pageSize)
         {
             return await _imDbApiAdapter.GetMoviesOnPageAsync(page, pageSize);
+        }
+
+        [HttpGet("{expression}")]
+        public async Task<ActionResult<Movie?>> GetMovie(string expression)
+        {
+            return await _imDbApiAdapter.GetMovieByTitle(expression);
         }
     }
 }

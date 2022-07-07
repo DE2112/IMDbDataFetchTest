@@ -5,17 +5,29 @@
     <h2>Plot</h2>
     <p>{{ data.plot }}</p>
   </div>
+  <div *ngIf="data.country">
+    <h2>Country</h2>
+    <p>{{ data.country }}</p>
+  </div>
   <div *ngIf="data.released">
     <h2>Release Date</h2>
     <p>{{ data.released }}</p>
   </div>
-  <div *ngIf="data.imdbRating">
-    <h2>IMDB Rating</h2>
-    <p>{{ data.imdbRating }}</p>
+  <div *ngIf="data.director">
+    <h2>Director</h2>
+    <p>{{ data.director }}</p>
+  </div>
+  <div *ngIf="data.writer">
+    <h2>Writer</h2>
+    <p>{{ data.writer }}</p>
   </div>
   <div *ngIf="data.actors">
     <h2>Cast</h2>
     <p>{{ data.actors }}</p>
+  </div>
+  <div *ngIf="data.imdbRating">
+    <h2>IMDB Rating</h2>
+    <p>{{ data.imdbRating }}</p>
   </div>
 </div>
 <mat-dialog-actions align="end">

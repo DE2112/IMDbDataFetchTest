@@ -1,0 +1,20 @@
+.error-hint {
+  color: red;
+}
+
+form {
+  padding: 20px;
+  margin: auto;
+  display: table;
+}
+
+button {
+
+  margin: 10px auto;
+  display: block;
+}
+
+mat-spinner {
+  margin: 20px auto;
+  display: table;
+}

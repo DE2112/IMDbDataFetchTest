@@ -10,17 +10,14 @@ import { PageEvent } from "@angular/material/paginator";
 export class IMDBDataComponent {
   public isDataLoaded: boolean = false;
   public movies: Movie[] = [];
-  public baseUrl: string = "";
 
   public length: number = 0;
   public pageSize: number = 10;
   public pageSizeOptions: number[] = [5, 10, 25, 100];
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.baseUrl = baseUrl;
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
     http.get<PageData>(baseUrl + `datafetch/1/${this.pageSize}`)
-      .toPromise()
-      .then(data => {
+      .subscribe(data => {
         this.length = data.count;
         this.movies = data.movies;
         this.isDataLoaded = true;
@@ -31,8 +28,7 @@ export class IMDBDataComponent {
     this.isDataLoaded = false;
 
     this.http.get<PageData>(this.baseUrl + `datafetch/${event.pageIndex+1}/${event.pageSize}`)
-      .toPromise()
-      .then(data => {
+      .subscribe(data => {
         this.movies = data.movies;
         this.isDataLoaded = true;
       });

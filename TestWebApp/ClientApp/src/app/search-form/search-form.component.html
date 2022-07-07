@@ -1,0 +1,10 @@
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label>Movie Title</mat-label>
+    <input matInput type="text" id="titleField" name="titleField" [(ngModel)]="titleField" placeholder="Placeholder" (ngModelChange)="resetErrorMessage()" required>
+    <mat-hint *ngIf="!errorMessage">Enter movie to search title</mat-hint>
+    <mat-hint class="error-hint" *ngIf="errorMessage">{{ errorMessage }}</mat-hint>
+  </mat-form-field>
+  <button [disabled]="!titleField" mat-raised-button (click)="findMovie()">SEARCH</button>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</form>
