@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <img class="poster-modal" src="{{ data.poster }}">
+  <div *ngIf="data.plot">
+    <h2>Plot</h2>
+    <p>{{ data.plot }}</p>
+  </div>
+  <div *ngIf="data.released">
+    <h2>Release Date</h2>
+    <p>{{ data.released }}</p>
+  </div>
+  <div *ngIf="data.imdbRating">
+    <h2>IMDB Rating</h2>
+    <p>{{ data.imdbRating }}</p>
+  </div>
+  <div *ngIf="data.actors">
+    <h2>Cast</h2>
+    <p>{{ data.actors }}</p>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

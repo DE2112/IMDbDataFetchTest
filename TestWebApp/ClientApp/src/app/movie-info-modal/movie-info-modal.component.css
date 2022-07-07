@@ -1,0 +1,11 @@
+.poster-modal {
+  height: 400px;
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-dialog-content {
+  align-content: center;
+}

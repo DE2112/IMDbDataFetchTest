@@ -2,21 +2,12 @@
 
 <p>IMDB Data Test</p>
 
-<p *ngIf="!movies"><em>Loading...</em></p>
-<!--<p *ngIf="data"><em>{{ data.title }}</em></p>-->
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
-  <thead>
-  <tr>
-    <th>Test</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let movie of movies">
-    <td>{{ movie.title }}</td>
-<!--    <td>{{ movie.description }}</td>-->
-    <td><img src="{{ movie.imageLink }}" height="200"></td>
-    <td>{{ movie.rating }}</td>
-  </tr>
-  </tbody>
-</table>
+<div *ngIf="!isDataLoaded">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<movie-list [movies]="movies" *ngIf="isDataLoaded"></movie-list>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions" (page)="onPageEvent($event)">
+</mat-paginator>
 

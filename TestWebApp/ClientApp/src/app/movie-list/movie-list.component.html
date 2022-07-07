@@ -1,0 +1,7 @@
+<!--<mat-grid-list cols="{{ movieListCols }}" rowHeight="1:2" (window:resize)="onResize($event)">-->
+<div class="movie-list">
+  <div *ngFor="let movie of movies">
+    <movie-card [movie]="movie"></movie-card>
+  </div>
+</div>
+<!--</mat-grid-list>-->

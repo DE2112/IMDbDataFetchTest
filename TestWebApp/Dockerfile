@@ -4,11 +4,11 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /srcIn
 COPY ["TestWebApp/TestWebApp.csproj", "TestWebApp/"]
 RUN dotnet restore "TestWebApp/TestWebApp.csproj"
 COPY . .
-WORKDIR "/src/TestWebApp"
+WORKDIR "/srcIn/TestWebApp"
 RUN dotnet build "TestWebApp.csproj" -c Release -o /app/build
 
 FROM build AS publish

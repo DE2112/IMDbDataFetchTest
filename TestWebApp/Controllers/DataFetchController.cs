@@ -16,18 +16,18 @@ namespace TestWebApp.Controllers
     {
 
         private readonly ILogger<DataFetchController> _logger;
-        private readonly IMDBApiAdapter _imdbApiAdapter;
+        private readonly IMDbApiAdapter _imDbApiAdapter;
 
         public DataFetchController(ILogger<DataFetchController> logger)
         {
             _logger = logger;
-            _imdbApiAdapter = new IMDBApiAdapter();
+            _imDbApiAdapter = new IMDbApiAdapter();
         }
 
-        [HttpGet]
-        public async Task<ActionResult<Movie[]>> Get()
+        [HttpGet("{page}/{pageSize}")]
+        public async Task<ActionResult<object>> Get(int page, int pageSize)
         {
-            return await _imdbApiAdapter.GetMoviesOnPage(1);
+            return await _imDbApiAdapter.GetMoviesOnPageAsync(page, pageSize);
         }
     }
 }
