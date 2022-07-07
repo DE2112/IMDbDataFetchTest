@@ -1,6 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import {Movie} from "../../models/movie";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import { Component, Inject } from '@angular/core';
+import { Movie } from "../../models/movie";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Utils } from "../utils/utils";
 
 @Component({
   selector: 'movie-info-modal',
@@ -8,5 +9,5 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   styleUrls: ['./movie-info-modal.component.css']
 })
 export class MovieInfoModalComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Movie) {}
+  constructor(public utils: Utils, @Inject(MAT_DIALOG_DATA) public data: Movie) {}
 }

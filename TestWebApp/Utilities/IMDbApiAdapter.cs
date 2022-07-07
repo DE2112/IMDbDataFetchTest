@@ -16,7 +16,7 @@ namespace TestWebApp.Utilities
 
         public IMDbApiAdapter()
         {
-            _imdbApi = new ApiLib("k_7p41yn3a");
+            _imdbApi = new ApiLib("k_56ariphs");
             _httpClient = new HttpClient();
         }
 
@@ -50,7 +50,7 @@ namespace TestWebApp.Utilities
                 .Select(async detail => await SearchMovieAsync(detail.Id, true))
                 .Select(task => task.Result).ToArray();
             
-            return new JsonResult(new { Count = mostPopularMoviesData.Items.Count, Movies = moviesOnPage});
+            return new JsonResult(new { Count = mostPopularMoviesData.Items.Count, Movies = moviesOnPage });
         }
 
         public async Task<ActionResult<Movie?>> GetMovieByTitle(string expression)

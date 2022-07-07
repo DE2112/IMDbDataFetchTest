@@ -1,31 +1,31 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
-<div mat-dialog-content>
-  <img class="poster-modal" src="{{ data.poster }}">
-  <div *ngIf="data.plot">
+<div mat-dialog-content id="modal">
+  <img class="poster-modal" src="{{ data.poster }}" *ngIf="!utils.isFieldEmpty(data.poster)" alt="{{ data.title }}">
+  <div *ngIf="!utils.isFieldEmpty(data.plot)">
     <h2>Plot</h2>
     <p>{{ data.plot }}</p>
   </div>
-  <div *ngIf="data.country">
+  <div *ngIf="!utils.isFieldEmpty(data.country)">
     <h2>Country</h2>
     <p>{{ data.country }}</p>
   </div>
-  <div *ngIf="data.released">
+  <div *ngIf="!utils.isFieldEmpty(data.released)">
     <h2>Release Date</h2>
     <p>{{ data.released }}</p>
   </div>
-  <div *ngIf="data.director">
+  <div *ngIf="!utils.isFieldEmpty(data.director)">
     <h2>Director</h2>
     <p>{{ data.director }}</p>
   </div>
-  <div *ngIf="data.writer">
+  <div *ngIf="!utils.isFieldEmpty(data.writer)">
     <h2>Writer</h2>
     <p>{{ data.writer }}</p>
   </div>
-  <div *ngIf="data.actors">
+  <div *ngIf="!utils.isFieldEmpty(data.actors)">
     <h2>Cast</h2>
     <p>{{ data.actors }}</p>
   </div>
-  <div *ngIf="data.imdbRating">
+  <div *ngIf="!utils.isFieldEmpty(data.imdbRating)">
     <h2>IMDB Rating</h2>
     <p>{{ data.imdbRating }}</p>
   </div>

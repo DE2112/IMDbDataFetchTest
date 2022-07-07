@@ -1,7 +1,10 @@
 <button mat-raised-button (click)="openModal()" *ngIf="movie">
   <mat-card>
-    <mat-card-title>{{ movie.title }}</mat-card-title>
-    <img mat-card-image class="poster" src="{{ movie.poster }}">
+    <mat-card-title>
+      <span>{{ movie.title }}</span>
+    </mat-card-title>
+    <img mat-card-image src="{{ movie.poster }}" *ngIf="!utils.isFieldEmpty(movie.poster)" alt="{{ movie.title }}">
+    <img mat-card-image src="assets/static/placeholder.png" *ngIf="utils.isFieldEmpty(movie.poster)">
     <mat-card-footer>
       <p>{{ movie.imdbRating }} / 10</p>
     </mat-card-footer>
